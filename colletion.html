@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO My Collection Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; }
+        .lego-yellow { background-color: #fd0; }
+        .sidebar-item-active { border-left: 4px solid #006db7; background-color: #f0f7ff; color: #006db7; }
+    </style>
+</head>
+<body>
+
+   <style>
+        /* --- 1. CSS RESET & FONTS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        /* --- 2. HEADER CHÍNH --- */
+        .header {
+            background-color: #ffffff;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- 3. LOGO & MENU (Bên trái) --- */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .logo:active { opacity: 0.7; }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+            background-color: #f39c12;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        /* Hiệu ứng gạch chân khi hover */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover { color: #1a1a1a; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- 4. SEARCH & ACTIONS (Bên phải) --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            position: relative;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 8px 12px 8px 36px;
+            width: 280px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .search-bar:focus-within {
+            background-color: #fff;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            width: 320px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: #1f2937;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Hiệu ứng tương tác cho các nút Icon */
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #4b5563;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-icon:hover {
+            background-color: #f3f4f6;
+            color: #1a1a1a;
+        }
+
+        /* Hiệu ứng lún xuống khi Click */
+        .btn-icon:active {
+            transform: scale(0.85);
+            background-color: #e5e7eb;
+        }
+
+        .cart-wrapper {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        .user-avatar {
+            background-color: #6b7280;
+            color: white;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-box">B</div>
+                    <span class="logo-text">ĐKL</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link">Shop</a>
+                    <a href="#" class="nav-link">Discover</a>
+                    <a href="#" class="nav-link">Help</a>
+                </nav>
+            </div>
+
+            <div class="nav-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search for sets, themes...">
+                </div>
+                
+                <div class="icon-group">
+                    <button class="btn-icon" title="Yêu thích">♡</button>
+                    
+                    <div class="cart-wrapper">
+                        <button class="btn-icon" title="Giỏ hàng">🛒</button>
+                        <span class="badge">0</span>
+                    </div>
+
+                    <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+
+    <div class="max-w-7xl mx-auto flex py-8 px-4">
+        
+        <aside class="w-64 flex-shrink-0 bg-white rounded-lg shadow-sm h-fit">
+            <ul class="text-sm text-gray-700 py-2">
+                <li class="px-6 py-3 flex items-center hover:bg-gray-50 cursor-pointer"><i class="far fa-user mr-3"></i> Account Overview</li>
+                <li class="px-6 py-3 flex items-center hover:bg-gray-50 cursor-pointer"><i class="fas fa-box mr-3"></i> My Orders</li>
+                <li class="px-6 py-3 flex items-center hover:bg-gray-50 cursor-pointer"><i class="far fa-star mr-3"></i> Rewards</li>
+                <li class="px-6 py-3 flex items-center sidebar-item-active font-bold"><i class="fas fa-th-large mr-3"></i> My Collection</li>
+                <li class="px-6 py-3 flex items-center hover:bg-gray-50 cursor-pointer border-t mt-2"><i class="fas fa-cog mr-3"></i> Account Settings</li>
+                <li class="px-6 py-3 flex items-center text-gray-500 hover:bg-gray-50 cursor-pointer"><i class="fas fa-sign-out-alt mr-3"></i> Logout</li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 ml-8">
+            <nav class="text-xs text-blue-600 mb-6">
+                Home > Account Overview > <span class="text-gray-500">My Collection</span>
+            </nav>
+
+            <div class="text-center py-12 bg-white rounded-xl shadow-sm mb-12">
+                <div class="flex justify-center mb-6">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/bltf28003666b6c7811/empty-collection.png" alt="LEGO Characters" class="h-48">
+                </div>
+                <h2 class="text-3xl font-black mb-2">Your collection is empty</h2>
+                <p class="text-gray-500 mb-6">Don't have a set yet?</p>
+                <button class="border-2 border-blue-600 text-blue-600 px-8 py-2 rounded-full font-bold hover:bg-blue-50 transition">
+                    Start shopping
+                </button>
+            </div>
+
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black">Build on your collection!</h3>
+                <div class="space-x-2">
+                    <button class="w-10 h-10 rounded-full border border-gray-300 bg-white text-gray-400"><i class="fas fa-chevron-left"></i></button>
+                    <button class="w-10 h-10 rounded-full border border-gray-300 bg-white shadow-sm"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white p-4 rounded-xl shadow-sm group">
+                    <div class="relative mb-4 bg-gray-50 rounded-lg p-4">
+                        <span class="absolute top-2 left-2 bg-yellow-400 text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+                        <img src="https://www.lego.com/cdn/cs/set/assets/blt9031d27947113886/71443.png" class="w-full h-40 object-contain">
+                    </div>
+                    <div class="flex items-center text-[10px] text-gray-500 mb-1 space-x-2">
+                        <span>18+</span> <span>|</span> <span>2234</span>
+                    </div>
+                    <h4 class="font-bold text-sm mb-4 leading-tight h-10">Mario Kart™ - Luigi & Mach 8</h4>
+                    <p class="font-bold text-lg mb-4">$179.99</p>
+                    <button class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm hover:bg-orange-600 transition">Pre-order</button>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm">
+                    <div class="relative mb-4 bg-gray-50 rounded-lg p-4 text-center">
+                        <img src="https://www.lego.com/cdn/cs/set/assets/blt3f596637e1b5b154/31213.png" class="w-full h-40 object-contain mx-auto">
+                    </div>
+                    <div class="flex items-center text-[10px] text-gray-500 mb-1 space-x-2">
+                        <span>18+</span> <span>|</span> <span>3179</span>
+                    </div>
+                    <h4 class="font-bold text-sm mb-4 leading-tight h-10">Claude Monet - Water Lilies</h4>
+                    <p class="font-bold text-lg mb-4">$249.99</p>
+                    <button class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-sm">Add to Bag</button>
+                </div>
+                
+                </div>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -17,20 +17,241 @@
 </head>
 <body>
 
-    <header class="lego-yellow p-3 flex justify-between items-center px-8 border-b border-black">
-        <div class="flex items-center gap-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg" class="h-10" alt="Lego Logo">
-            <nav class="hidden md:flex gap-4 font-bold text-sm uppercase">
-                <a href="#">Shop</a><a href="#">Discover</a><a href="#">Help</a>
-            </nav>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="bg-white rounded-full px-4 py-1 flex items-center border border-gray-300">
-                <input type="text" placeholder="Search" class="outline-none text-sm w-48">
-                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+  <style>
+        /* --- 1. CSS RESET & FONTS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        /* --- 2. HEADER CHÍNH --- */
+        .header {
+            background-color: #ffffff;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- 3. LOGO & MENU (Bên trái) --- */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .logo:active { opacity: 0.7; }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+            background-color: #f39c12;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        /* Hiệu ứng gạch chân khi hover */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover { color: #1a1a1a; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- 4. SEARCH & ACTIONS (Bên phải) --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            position: relative;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 8px 12px 8px 36px;
+            width: 280px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .search-bar:focus-within {
+            background-color: #fff;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            width: 320px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: #1f2937;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Hiệu ứng tương tác cho các nút Icon */
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #4b5563;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-icon:hover {
+            background-color: #f3f4f6;
+            color: #1a1a1a;
+        }
+
+        /* Hiệu ứng lún xuống khi Click */
+        .btn-icon:active {
+            transform: scale(0.85);
+            background-color: #e5e7eb;
+        }
+
+        .cart-wrapper {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        .user-avatar {
+            background-color: #6b7280;
+            color: white;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-box">B</div>
+                    <span class="logo-text">ĐKL</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link">Shop</a>
+                    <a href="#" class="nav-link">Discover</a>
+                    <a href="#" class="nav-link">Help</a>
+                </nav>
             </div>
-            <i class="fa-regular fa-heart text-xl"></i>
-            <i class="fa-solid fa-bag-shopping text-xl"></i>
+
+            <div class="nav-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search for sets, themes...">
+                </div>
+                
+                <div class="icon-group">
+                    <button class="btn-icon" title="Yêu thích">♡</button>
+                    
+                    <div class="cart-wrapper">
+                        <button class="btn-icon" title="Giỏ hàng">🛒</button>
+                        <span class="badge">0</span>
+                    </div>
+
+                    <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
+                </div>
+            </div>
         </div>
     </header>
 
