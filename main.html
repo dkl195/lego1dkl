@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEGO® Shop Clone - High Fidelity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            legoYellow: '#ffcf00',
+            legoRed: '#d11013',
+            legoOrange: '#fd8024',
+            legoNavy: '#20214b',
+            legoGrey: '#f8f8f8',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    .brand-heading {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="animations">
+    .hover-scale {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .active-press:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrickWorld Header Navigation</title>
+    <style>
+        /* --- 1. CSS RESET & FONTS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        /* --- 2. HEADER CHÍNH --- */
+        .header {
+            background-color: #ffffff;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- 3. LOGO & MENU (Bên trái) --- */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .logo:active { opacity: 0.7; }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+            background-color: #f39c12;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 600;
+            font-size: 15px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        /* Hiệu ứng gạch chân khi hover */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover { color: #1a1a1a; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- 4. SEARCH & ACTIONS (Bên phải) --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            position: relative;
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            padding: 8px 12px 8px 36px;
+            width: 280px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .search-bar:focus-within {
+            background-color: #fff;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            width: 320px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: #1f2937;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Hiệu ứng tương tác cho các nút Icon */
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #4b5563;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-icon:hover {
+            background-color: #f3f4f6;
+            color: #1a1a1a;
+        }
+
+        /* Hiệu ứng lún xuống khi Click */
+        .btn-icon:active {
+            transform: scale(0.85);
+            background-color: #e5e7eb;
+        }
+
+        .cart-wrapper {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: #f39c12;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        .user-avatar {
+            background-color: #6b7280;
+            color: white;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-box">B</div>
+                    <span class="logo-text">ĐKL</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#" class="nav-link">Shop</a>
+                    <a href="#" class="nav-link">Discover</a>
+                    <a href="#" class="nav-link">Help</a>
+                </nav>
+            </div>
+
+            <div class="nav-right">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search for sets, themes...">
+                </div>
+                
+                <div class="icon-group">
+                    <button class="btn-icon" title="Yêu thích">♡</button>
+                    
+                    <div class="cart-wrapper">
+                        <button class="btn-icon" title="Giỏ hàng">🛒</button>
+                        <span class="badge">0</span>
+                    </div>
+
+                    <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+<main>
+<!-- BEGIN: Hero Section -->
+<section class="relative w-full h-[600px] bg-black overflow-hidden" data-purpose="hero-banner">
+<img alt="Hero Banner" class="absolute inset-0 w-full h-full object-cover opacity-90" src="images/lego0.jpg">
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+<div class="relative z-10 h-full flex flex-col justify-center px-12 text-white max-w-2xl">
+<div class="mb-4">
+<span class="bg-legoYellow text-black font-bold text-xs px-2 py-1 rounded">NEW</span>
+<span class="ml-2 text-legoYellow font-bold text-xs underline">Exclusives</span>
+</div>
+<h1 class="brand-heading text-6xl mb-4 leading-tight">Race to glory!</h1>
+<p class="text-sm font-medium mb-8 max-w-md">Recreate the 2023 F1® Constructors' Champion with the LEGO® Technic™ McLaren MCL38 F1 Car for a thrilling building project.</p>
+<div class="flex space-x-4">
+<button class="bg-white text-black px-8 py-3 rounded-full font-bold text-sm flex items-center active-press">
+            Buy now <span class="ml-2">→</span>
+</button>
+<button class="border-2 border-white text-white px-8 py-3 rounded-full font-bold text-sm flex items-center hover:bg-white hover:text-black transition-colors active-press">
+            Shop all new <span class="ml-2">→</span>
+</button>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+ <!-- BEGIN: CategoryNavigation -->
+<section class="bg-[#1a1a1a] py-8 text-white">
+<div class="max-w-7xl mx-auto px-4">
+<div class="flex space-x-6 mb-6">
+<button class="text-sm font-bold border-b-2 border-white pb-1">What's new</button>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+<!-- All New Sets -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-cyan-400 rounded-lg overflow-hidden flex items-end justify-center p-2">
+<img alt="All new sets" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa9708kxRLjmZKRvM9rZjMa_-tHBepAK-8pchGho_9DD9kJgm87lUq3-jh372YgIqwl4Rbvyorgxh6FaCe-oU5wCzzosk6RPaw9auOn5ZJd23bDvok-3DusZGURiRcb2cI5g0E1urs6gYZpTZdsX-GuTJmRmulIZWbYIH36iu6KdELC_jAXYa3LjI4Lgep0wP4Xubv8NJgHnENK4TwzHWVO5DG0-VwD-qS3LAfLjwn4keeTizrz836MmF0qSmD4ubVahasMovwPvo"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">All new sets</p>
+</div>
+<!-- Exclusives -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-blue-800 rounded-lg overflow-hidden flex items-end justify-center p-2">
+<img alt="Exclusives" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqnkzyYtAo2P5eLzat3mp3pFw7RLRUldfuKA1WkkfOzmc8XBem-q3JDzaKWD6PmkR4Fyxb2PsyW_c7w6tkL0g7jc5BtbH3XNPxE2vpMQgZRhAtl_lZIS61HGmFirzTO8waDZp4ZBZs18BfWOFGiHUqNpSZ0C32hEiOu2D1hhL4AGoGpSHMd-AZMsxxXEuZPfaW6YYmp6ojzRSUly4MCbSt6iVi16wA4mBoS_84xU1idQqIV07u3DZVMA_PmkOyMVF2SQn9DPRVWqs"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Exclusives</p>
+</div>
+<!-- Offers -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-purple-600 rounded-lg overflow-hidden flex items-center justify-center p-2">
+<div class="bg-red-500 w-12 h-16 rounded flex items-center justify-center shadow-lg">
+<span class="text-white font-bold text-xl">%</span>
+</div>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Offers</p>
+</div>
+<!-- Pokémon -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-green-900 rounded-lg overflow-hidden flex items-center justify-center p-2">
+<img alt="Pokemon" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrOIFtrswrHUhOdrHI1yiypoPZC62c776lIbgD7YGRjPX6A8WRj4PthBQq89YyyPPUxEjSoCzDQh6WDGn9cGaULO7fY4uGWHUUWAIMImHpVNjAnePOK5vt6yTQCf4lY8fFT7i4SuC8Hh0lHOqj5WNdV36v1aiE2tVRMh9Q8yHZz4Ny4y4mJzJjgI-Hiehq-xiqCjVwUpkyRkbPQFKZYYp2d7lJ1NJWFb-WChGcOmu6NXZo3OMu5rMZdeCoUqPhmRFq_mS8I9rsFQI"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Pokémon</p>
+</div>
+<!-- Smart Play -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-indigo-900 rounded-lg overflow-hidden flex items-center justify-center p-2">
+<img alt="Smart Play" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxNASqG5m-LO7iI1JyGhhZ6_lee1m5KWFSOYIkAeuLCwxVeMR0HscTIOE9SZkaVNMf3LSlVRJdZ_0x9gUNrX9wn8SkpmuTsGvp7mqDCPzhC7JfGQtmbstrsImvD0bYyZXqVBRzMd5v7zbA2l1K1_Qh0Y_qwfsgqJN6UoynR9usNJ5qlU9vWaNYA5P9FJFLlKVi-1sU0Ot757lYLWvprDRNV1yXItLP6CclAJ77tpMLfsGgyBMX-1hYpCnkC_pvrXQbAs_69q1Y7EY"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Smart Play™ sets</p>
+</div>
+<!-- Art -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-pink-500 rounded-lg overflow-hidden flex items-center justify-center p-2">
+<img alt="Art" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClFTT4sUl6WRavDx7tyZuzZyIqh5Cjs3cgVrHgV7l38pD1k95Vg44mjUZI1buauHsHH7kfp2ljEewJ4cPtnD2X3wOxXwZqhxv5S_cjHLDNpNi0OuLL1Ei7mWmGqf80KnWpTzLanF8YCOZQ3daT9KwzW0-iO-IlIwX3XfOVu1BNuUnxhVZs8fU8ELU0FPVv6rGP35Fvyr5IHRMAkBglzFCaSkuijvqomkXv4em7kjElGlyFT8GWr2MKwev4C9bePuymfETn2MNqBEQ"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Art</p>
+</div>
+<!-- Icons -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-black border border-gray-700 rounded-lg overflow-hidden flex items-center justify-center p-2">
+<img alt="Icons" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVuQ0hKUkGjhyk20VQDJoFtEGS26HCjb26tpF7L7Ya1itPlVRuKMuLymDLxMUe_J5uQBId8BxYGN6yxx49N-yrVoW9Y2FXATa3a5rFrZOZR0Bj8yrIM5kF-HDcziTBqwTMnRks_bYsnd5DQozpZglp3qyaSHksE8_Jw2OxiuHP22A_HER0kHa6YMMiIBqxgdmhaxJUmPKrFdAp94djH9Td27bkzYjtSUpfZ0bduDQjKIDQcD9yVUnz7401rMakWVztwR2RLwdOp1o"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase">Icons</p>
+</div>
+<!-- Great Rewards -->
+<div class="category-card group cursor-pointer">
+<div class="aspect-square bg-white rounded-lg overflow-hidden flex flex-col items-center justify-center p-2">
+<div class="bg-blue-600 text-white p-2 rounded text-[8px] font-bold uppercase mb-1">Insiders</div>
+<img alt="Rewards" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlsiyw5elrDVNh7zug-LjHOkvr46uFxk0aMJ2dOEVhDx90IG8pX4tKfTNAe2RZ3i3KDJudkZHijmhgwqZlpReV22slN10nRnH9wV6pcLbAyZzfuJCoxTOO7FiAnDJ3xV8OfWCtTZQruUirSRMMCB_F6FW1OT6kYPIR-O_B1iIa7jqBEOm-fXm5QIwYhwCdnu7vBVXZOUUn1H8CHp4yCXkg7Uyn1OtM9GJzlckdJixT9PiIGDu9SDyyF2r2Q110ssBDr4YYqMITH9k"/>
+</div>
+<p class="text-center text-[11px] font-bold mt-2 uppercase text-white">Great Rewards</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: CategoryNavigation -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 1. Hiệu ứng phóng to ảnh khi hover vào thẻ */
+        .hover-scale {
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .group:hover .hover-scale {
+            transform: scale(1.1);
+        }
+
+        /* 2. Hiệu ứng nhấn lún nút "Add to Bag" */
+        .active-press:active {
+            transform: scale(0.96);
+            filter: brightness(0.9);
+            transition: transform 0.1s;
+        }
+
+        /* 3. Hiệu ứng nút Trái tim khi được chọn (Active) */
+        .wishlist-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .wishlist-btn.is-active {
+            background-color: #fee2e2 !important; /* Nền đỏ nhạt */
+            border-color: #ef4444 !important;    /* Viền đỏ */
+            color: #ef4444 !important;           /* Màu icon đỏ */
+        }
+
+        .wishlist-btn.is-active svg {
+            fill: #ef4444; /* Đổ màu đỏ kín lòng trái tim */
+            stroke: #ef4444;
+        }
+
+        .wishlist-btn:active {
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<section class="max-w-7xl mx-auto py-16 px-4" data-purpose="product-discovery">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold mb-8">What makes us different</h2>
+        <div class="flex justify-center space-x-6 border-b border-gray-200">
+            <h3 class="pb-2 text-sm text-gray-500">
+                Browse thousands of sets for every age and interest.
+            </h3>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        
+        <div class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col group relative">
+            <span class="absolute top-2 right-2 bg-[#FFCF00] text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+            <div class="aspect-square mb-4 overflow-hidden">
+                <img alt="Eevee" class="w-full h-full object-contain hover-scale" src="https://m.media-amazon.com/images/I/71Y88f7vS2L._AC_SL1500_.jpg"/>
+            </div>
+            <div class="flex items-center text-[10px] font-bold text-gray-500 space-x-1 mb-2">
+                <span>18+</span> <span>|</span> <span>387 pcs</span> <span>|</span> <span class="text-yellow-500">★ 4.9</span>
+            </div>
+            <h3 class="font-bold text-sm mb-4 flex-grow">Eevee</h3>
+            <p class="font-black text-lg mb-4">$39.99</p>
+            <div class="flex space-x-2">
+                <button class="flex-grow bg-[#FD5F00] text-white text-xs font-black py-2.5 rounded-md uppercase active-press">Add to Bag</button>
+                <button onclick="toggleWishlist(this)" class="wishlist-btn p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col group relative">
+            <span class="absolute top-2 right-2 bg-[#FFCF00] text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+            <div class="aspect-square mb-4 overflow-hidden">
+                <img alt="Monet" class="w-full h-full object-contain hover-scale" src="https://m.media-amazon.com/images/I/81S7mO2S39L._AC_SL1500_.jpg"/>
+            </div>
+            <div class="flex items-center text-[10px] font-bold text-gray-500 space-x-1 mb-2">
+                <span>18+</span> <span>|</span> <span>3278 pcs</span> <span>|</span> <span class="text-yellow-500">★ 4.3</span>
+            </div>
+            <h3 class="font-bold text-sm mb-4 flex-grow">Claude Monet - Water Lilies</h3>
+            <p class="font-black text-lg mb-4">$249.99</p>
+            <div class="flex space-x-2">
+                <button class="flex-grow bg-[#FD5F00] text-white text-xs font-black py-2.5 rounded-md uppercase active-press">Add to Bag</button>
+                <button onclick="toggleWishlist(this)" class="wishlist-btn p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col group relative">
+            <span class="absolute top-2 right-2 bg-[#FFCF00] text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+            <div class="aspect-square mb-4 overflow-hidden">
+                <img alt="Sunflowers" class="w-full h-full object-contain hover-scale" src="https://m.media-amazon.com/images/I/71Y88f7vS2L._AC_SL1500_.jpg"/>
+            </div>
+            <div class="flex items-center text-[10px] font-bold text-gray-500 space-x-1 mb-2">
+                <span>18+</span> <span>|</span> <span>454 pcs</span> <span>|</span> <span class="text-yellow-500">★ 5.0</span>
+            </div>
+            <h3 class="font-bold text-sm mb-4 flex-grow">Sunflower Bouquet</h3>
+            <p class="font-black text-lg mb-4">$39.99</p>
+            <div class="flex space-x-2">
+                <button class="flex-grow bg-[#FD5F00] text-white text-xs font-black py-2.5 rounded-md uppercase active-press">Add to Bag</button>
+                <button onclick="toggleWishlist(this)" class="wishlist-btn p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col group relative">
+            <span class="absolute top-2 right-2 bg-[#FFCF00] text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+            <div class="aspect-square mb-4 overflow-hidden">
+                <img alt="Magnolia" class="w-full h-full object-contain hover-scale" src="https://m.media-amazon.com/images/I/71Y88f7vS2L._AC_SL1500_.jpg"/>
+            </div>
+            <div class="flex items-center text-[10px] font-bold text-gray-500 space-x-1 mb-2">
+                <span>18+</span> <span>|</span> <span>438 pcs</span> <span>|</span> <span class="text-yellow-500">★ 5.0</span>
+            </div>
+            <h3 class="font-bold text-sm mb-4 flex-grow">Magnolia Branches</h3>
+            <p class="font-black text-lg mb-4">$49.99</p>
+            <div class="flex space-x-2">
+                <button class="flex-grow bg-[#FD5F00] text-white text-xs font-black py-2.5 rounded-md uppercase active-press">Add to Bag</button>
+                <button onclick="toggleWishlist(this)" class="wishlist-btn p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4 flex flex-col group relative">
+            <span class="absolute top-2 right-2 bg-[#FFCF00] text-[10px] font-bold px-2 py-0.5 rounded">NEW</span>
+            <div class="aspect-square mb-4 overflow-hidden">
+                <img alt="Pikachu" class="w-full h-full object-contain hover-scale" src="https://m.media-amazon.com/images/I/71Y88f7vS2L._AC_SL1500_.jpg"/>
+            </div>
+            <div class="flex items-center text-[10px] font-bold text-gray-500 space-x-1 mb-2">
+                <span>18+</span> <span>|</span> <span>2050 pcs</span> <span>|</span> <span class="text-yellow-500">★ 3.8</span>
+            </div>
+            <h3 class="font-bold text-sm mb-4 flex-grow">Pikachu and Poké Ball</h3>
+            <p class="font-black text-lg mb-4">$199.99</p>
+            <div class="flex space-x-2">
+                <button class="flex-grow bg-[#FD5F00] text-white text-xs font-black py-2.5 rounded-md uppercase active-press">Add to Bag</button>
+                <button onclick="toggleWishlist(this)" class="wishlist-btn p-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    function toggleWishlist(btn) {
+        btn.classList.toggle('is-active');
+    }
+</script>
+
+</body>
+</html>
+<!-- BEGIN: Spotlight Section -->
+
+<section class="max-w-7xl mx-auto py-16 px-4" data-purpose="social-showcase">
+<div class="text-center mb-10">
+<h2 class="text-2xl font-black italic uppercase">Find the perfect set</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Build 1" class="w-full h-full object-cover hover-scale" src="images/lego4.jpg"/>
+<div class="absolute bottom-4 left-4 bg-white/80 p-2 rounded-full"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Build 2" class="w-full h-full object-cover hover-scale" src="images/lego2.jpg"/>
+<div class="absolute bottom-4 left-4 bg-white/80 p-1.5 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Build 3" class="w-full h-full object-cover hover-scale" src="images/lego6.jpg"/>
+<div class="absolute bottom-4 left-4 bg-white/80 p-1.5 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Build 4" class="w-full h-full object-cover hover-scale" src="images/lego7.jpg"/>
+<div class="absolute bottom-4 left-4 bg-white/80 p-1.5 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+</div>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg">
+<img alt="Build 5" class="w-full h-full object-cover hover-scale" src="images/lego8.jpg"/>
+<div class="absolute bottom-4 left-4 bg-white/80 p-1.5 rounded-full"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+</div>
+</div>
+</section>
+<!-- END: Social Grid Section -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-legoNavy text-white pt-16 pb-8" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
+<!-- Brand Column -->
+<div class="md:col-span-1">
+<div class="bg-legoRed p-1 w-fit mb-6">
+<span class="text-white font-black text-3xl px-1 tracking-tighter">LEGO</span>
+</div>
+<button class="bg-black/40 border border-white/20 px-4 py-2 rounded text-xs mb-8 flex items-center">
+<span class="mr-2">🇺🇸</span> United States
+          </button>
+<ul class="space-y-3 text-xs font-medium">
+<li><a class="hover:underline" href="#">Gift cards</a></li>
+<li><a class="hover:underline" href="#">Sitemap</a></li>
+<li><a class="hover:underline" href="#">Find inspiration</a></li>
+<li><a class="hover:underline" href="#">LEGO catalogs</a></li>
+<li><a class="hover:underline" href="#">Find a LEGO store</a></li>
+</ul>
+</div>
+<!-- About Column -->
+<div>
+<h4 class="font-black text-[10px] uppercase tracking-widest mb-6">About Us</h4>
+<ul class="space-y-4 text-xs font-medium text-gray-300">
+<li><a class="hover:text-white" href="#">About the LEGO Group</a></li>
+<li><a class="hover:text-white" href="#">LEGO® news</a></li>
+<li><a class="hover:text-white" href="#">Sustainability</a></li>
+<li><a class="hover:text-white" href="#">Supply chain transparency statement</a></li>
+<li><a class="hover:text-white" href="#">LEGO product certification</a></li>
+<li><a class="hover:text-white" href="#">LEGO Jobs</a></li>
+<li><a class="hover:text-white" href="#">LEGO Compliance Line</a></li>
+</ul>
+</div>
+<!-- Support Column -->
+<div>
+<h4 class="font-black text-[10px] uppercase tracking-widest mb-6">Support</h4>
+<ul class="space-y-4 text-xs font-medium text-gray-300">
+<li><a class="hover:text-white" href="#">Contact us</a></li>
+<li><a class="hover:text-white" href="#">Find building instructions</a></li>
+<li><a class="hover:text-white" href="#">Replacement parts</a></li>
+<li><a class="hover:text-white" href="#">LEGO® Delivery &amp; Shipping</a></li>
+<li><a class="hover:text-white" href="#">LEGO® Returns</a></li>
+<li><a class="hover:text-white" href="#">Payment methods</a></li>
+<li><a class="hover:text-white" href="#">Terms &amp; conditions</a></li>
+<li><a class="hover:text-white" href="#">Product recalls</a></li>
+</ul>
+</div>
+<!-- Attractions Column -->
+<div>
+<h4 class="font-black text-[10px] uppercase tracking-widest mb-6">Attractions</h4>
+<ul class="space-y-4 text-xs font-medium text-gray-300">
+<li><a class="hover:text-white" href="#">LEGO® House</a></li>
+<li><a class="hover:text-white" href="#">LEGOLAND® Parks</a></li>
+<li><a class="hover:text-white" href="#">LEGOLAND Discovery Centers</a></li>
+</ul>
+</div>
+<!-- More Column -->
+<div>
+<h4 class="font-black text-[10px] uppercase tracking-widest mb-6">More From Us</h4>
+<ul class="space-y-4 text-xs font-medium text-gray-300">
+<li><a class="hover:text-white" href="#">LEGO® Magazine (FREE!)</a></li>
+<li><a class="hover:text-white" href="#">LEGO Education</a></li>
+<li><a class="hover:text-white" href="#">LEGO Ideas</a></li>
+<li><a class="hover:text-white" href="#">LEGO Foundation</a></li>
+<li><a class="hover:text-white" href="#">Affiliate program</a></li>
+<li><a class="hover:text-white" href="#">Student &amp; exclusive offers</a></li>
+<li><a class="hover:text-white" href="#">LEGO braille bricks</a></li>
+</ul>
+</div>
+</div>
+<!-- Newsletter and Social -->
+<div class="flex flex-col md:flex-row justify-between items-end border-t border-white/10 pt-12">
+<div class="w-full md:w-1/2 mb-8 md:mb-0">
+<h4 class="font-black text-[10px] uppercase tracking-widest mb-4">Subscribe to digital marketing emails</h4>
+<div class="flex">
+<input class="w-full max-w-xs bg-white text-gray-900 border-none px-4 py-2.5 text-sm rounded-l focus:ring-2 focus:ring-legoOrange" placeholder="Your email address" type="email"/>
+<button class="bg-legoOrange px-4 py-2.5 rounded-r active-press">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<div class="flex space-x-6">
+<a class="hover:opacity-70" href="#"><svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg></a>
+<a class="hover:opacity-70" href="#"><svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
+<a class="hover:opacity-70" href="#"><svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg></a>
+<a class="hover:opacity-70" href="#"><svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
+</div>
+</div>
+<!-- Legal Links -->
+<div class="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-[10px] text-gray-400 border-t border-white/5 pt-8 uppercase">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Cookies</a>
+<a class="hover:text-white" href="#">Legal Notice</a>
+<a class="hover:text-white" href="#">Terms of Use</a>
+<a class="hover:text-white" href="#">Digital Wellbeing</a>
+<a class="hover:text-white" href="#">Accessibility</a>
+<a class="hover:text-white" href="#">Cookie Settings</a>
+<a class="hover:text-white" href="#">Do not sell/share my personal information</a>
+</div>
+<p class="mt-8 text-[10px] text-gray-500 max-w-2xl leading-relaxed">
+        LEGO System A/S, DK-7190 Billund, Denmark. Must be 18 years or older to purchase online. LEGO, the LEGO logo, the Minifigure, DUPLO, the FRIENDS logo, the MINIFIGURES logo, DREAMZzz, NINJAGO, VIDIYO and MINDSTORMS are trademarks of the LEGO Group. ©2024 The LEGO Group. All rights reserved. Use of this site signifies your agreement to the Terms of Use.
+      </p>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>

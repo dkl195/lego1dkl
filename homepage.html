@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEGO® City - Build Your Megapolis</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom Tailwind Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            legoYellow: '#FFCF00',
+            legoDark: '#121212',
+            legoBlue: '#006CB7',
+            legoRed: '#D0021B',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="background-effects">.city-outline-bg {
+    background-image: linear-gradient(rgba(255, 207, 0, 0.92), rgba(255, 207, 0, 0.92)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBekRyw-fPc49pA6JBkwc7w_Cwke0bD9oHSxLTlvyHa9IVok-uAO0behkKQsdIl_oNvPlNVMAAWOr6skBIrCFaqq0FLFWZ77gnbnJ4fk8IuWQvKuNRpHAKV2OQPstsoaYMt1RRej0jKxwyCy9M3GOaAdM7Tgm5S6t-O8yYAfot4fNVgGTKkuX2JgyIFdfdi5Kjt381Qf9XvOhTclDzX-PEiSuFZonVWPfSKenRpvefR_FYB-0Lzzvdqx9KzloIPb8VLpAUBxAd2dCw);
+    background-size: cover;
+    background-blend-mode: multiply
+    }
+.text-shadow-hero {
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05)
+    }
+.sidebar-icon {
+    filter: invert(100%);
+    opacity: 0.7;
+    transition: opacity 0.3s
+    }
+.sidebar-icon:hover {
+    opacity: 1
+    }</style>
+</head>
+<body class="bg-legoYellow font-sans overflow-hidden h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-16 h-full bg-legoDark flex flex-col items-center py-6 gap-8 z-50" data-purpose="sidebar-navigation">
+<div class="mb-4">
+<img alt="Lego Logo" class="w-10 h-10 rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR7rL2QXrCNax8JVvDM5Rmlew0tI5ckCzeqqNkFbBl1t2xdqS5Mm5ObONgMkceRfQoQmM2c2AGm7U6h2Cen_YbqNQzPpI_6DFEKWLcLf2iXRFaWbseEsDKgtngO0j8jpNHZqsKI0R1pyoy_rcKRgnCkLHGANb5iLRdmER_btNQCDENkvNTD855tQ-9Gi4zp_xXaAp7GwbSetFcjRRVvRf6uKbwzy55qSPmr5WY1esUqPgLz_CYcJFvTTJVpUAq4mMtq7IAy6yuAkE"/>
+</div>
+<nav class="flex flex-col gap-6 items-center">
+<button class="sidebar-icon" title="Home">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="sidebar-icon" title="Shop">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="sidebar-icon" title="Games">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="sidebar-icon" title="Sales">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</nav>
+<div class="mt-auto pb-4">
+<button class="sidebar-icon" title="Account">
+<div class="w-8 h-8 rounded-full bg-legoYellow/20 border border-white/30 flex items-center justify-center">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<main class="flex-1 city-outline-bg relative flex flex-col">
+<!-- BEGIN: MainHeader -->
+<header class="w-full h-20 flex items-center justify-between px-10" data-purpose="top-navigation">
+<nav class="flex gap-8 items-center font-bold text-gray-800 text-sm tracking-wide">
+<a class="hover:text-legoBlue transition-colors" href="#">Themes</a>
+<a class="hover:text-legoBlue transition-colors" href="#">Accessories</a>
+<a class="hover:text-legoBlue transition-colors" href="#">Exclusives</a>
+<a class="border-b-2 border-legoRed pb-1" href="#">New Products</a>
+<a class="hover:text-legoBlue transition-colors" href="#">Sale &amp; Offers</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-gray-800 hover:scale-110 transition-transform">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="flex-1 relative flex items-center px-16" data-purpose="hero-content">
+<!-- Textual Content -->
+<div class="z-20 w-1/2 -mt-20">
+<h4 class="text-2xl font-black text-gray-800 uppercase tracking-widest mb-2">Collection</h4>
+<h1 class="text-[180px] font-black text-white leading-none tracking-tighter text-shadow-hero uppercase">City</h1>
+<div class="flex items-center gap-4 mt-6">
+<p class="text-gray-800 font-bold text-lg">Build the megapolis of your dreams</p>
+<span class="w-1.5 h-1.5 rounded-full bg-gray-800"></span>
+<a class="flex items-center gap-2 text-gray-800 font-bold text-lg hover:underline" href="#">
+            Watch Video 
+            <svg class="h-6 w-6 text-legoRed" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+<!-- Main LEGO Figure -->
+<div class="absolute right-0 bottom-0 z-30 w-1/2 flex justify-end items-end pointer-events-none">
+<!-- Emmet Figure Placeholder -->
+<img alt="Lego City Construction Worker" class="object-contain h-[90vh] -mr-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1szHGi9KJedi5wQtoA6DKEqiMqi1ymJ5sqbI8lwvlaYfVrcGrreeESS9_m-NygX5JaQzYWq9Cjw6-XtpSNzJ6tjrj3UHV1fM5_3VbD0QBcsSs-YhHYJCIWO9KwYuU-ERwdo7QPpsNcJbpf-YylgDLVdEgm5KNJ-4Bja4gqXAHCJF7MWhR5kQlflTRt86uCMn9tANu1XIV6YKcKUfopv4ArFcJ58H62WlCCt5mY8ut-4S_rV0MFdn6VU5kev04frk1fL-O5KuI_iA"/>
+</div>
+<!-- Left Small Figure Shadow -->
+<div class="absolute left-24 top-1/2 -translate-y-1/2 z-10 opacity-20 scale-150">
+<img alt="Small Lego Figure" class="object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlwy3JyE4XvKMnUS6g5oFxAGlFXP3qFRrK76eo_JdHBPMruQzGVJMlXv9ltV8yYUIuPgtqY0TpVVA43ZlN0rZjxlUI1jsLCm6vhAO4Xwi9Z7qk5G_k0cUetLgkLVcK2dgl1Zb1CpLzA-fbNkMsnbEC6VZyL4-FLozpI6SHvaMdQ0OX8VoXA274c81To2jimvnhElrGwcvZ5UeKIRJmC8bCsb3lC-vQJg6u8ntuB2Cp-Az7heZX-WRqcJDMbQuN4M4A2Ay8xuNUUK8"/>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProductShowcase -->
+<section class="px-16 pb-12 z-40" data-purpose="product-cards">
+<div class="flex items-end gap-6">
+<!-- Card 1 -->
+<div class="w-64">
+<p class="text-xs font-bold text-gray-700 mb-2">Construction Loader</p>
+<div class="bg-white/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer relative">
+<span class="absolute top-3 right-3 bg-legoRed text-white text-[10px] font-bold px-2 py-1 rounded uppercase">New</span>
+<img alt="Construction Loader" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC71xncThpHfZ8KVqOdFVnx77o9eDRSJZSNzGrSweMLTk8E0g3pa3Gn4FcuC4qyh9v4ZG20Diva0SSJkXsB5TJaOPOYmKYweawDuSHcIfmgTWTL8s9ziisUe4GNxqoi8t8G6Kz-WRGQhVmGF82AyATjTxwcfwElCPAE2J02vpgoydmgbIMiALe0qJ5vWQ_3ZGbT3z71Eti8Btfqp8p7wttWTD0S11I1yyf7876exZklsKlZ0bB4phu8b_tqaN_gnJkx92KndsVum74"/>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="w-64">
+<p class="text-xs font-bold text-gray-700 mb-2">Construction Bulldozer</p>
+<div class="bg-white/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+<img alt="Construction Bulldozer" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRPs6DHB_A6ZFjLlo6tGIOkH-1OJDAgNMW5bWuzK8d60trwIG_8gSVj5ut_oHbOcU9XEATkvewwA3gjcfVYjZGRGZoz7fniqHVhp6ScHSnf__VHa-mPxtuOykXRg78BTevryi9mn9VkAXFQpgxK5n9RvISZeSJ4EkW6bQa4SKHBc8fL-AMPZM6ytWock4R6z3nPQj4JNgCjLaXZu-xE_fHLgG3FK8CG8KEIew-9It03HSDBHGDN6GtyxzQ-HNrzvzHHrePbFRJUiM"/>
+</div>
+</div>
+<!-- Stats / Info -->
+<div class="ml-auto flex flex-col gap-3 mb-2">
+<a class="text-gray-800 font-bold flex items-center gap-2 mb-2 hover:text-legoRed transition-colors" href="#">
+            See More 
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</a>
+<div class="flex items-center gap-3 text-gray-800">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+</svg>
+<span class="text-sm font-semibold">Tens of Sets</span>
+</div>
+<div class="flex items-center gap-3 text-gray-800">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+</svg>
+<span class="text-sm font-semibold">High Quality Plastic</span>
+</div>
+<div class="flex items-center gap-3 text-gray-800">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" fill-rule="evenodd"></path>
+</svg>
+<span class="text-sm font-semibold">Age 4-16</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProductShowcase -->
+</main>
+</body></html><!-- MISSING_IMAGES:
+- City Outline Background (Skyscraper shapes)
+- Emmet Style LEGO Figure (Main character on right)
+- Jackhammer LEGO Figure (Small figure on left)
+- Construction Loader Set (Product card image)
+- Construction Bulldozer Set (Product card image)
+-->

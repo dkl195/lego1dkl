@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO My Orders Replica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f4f4; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .lego-yellow { background-color: #ffd500; }
+        .lego-blue { background-color: #006db7; }
+        .lego-dark-blue { background-color: #201d48; }
+        .sidebar-item:hover { background-color: #f3f4f6; }
+        .active-sidebar { background-color: #006db7; color: white !important; }
+    </style>
+</head>
+<body>
+
+    <header class="lego-yellow p-3 flex justify-between items-center px-8 border-b border-black">
+        <div class="flex items-center gap-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg" class="h-10" alt="Lego Logo">
+            <nav class="hidden md:flex gap-4 font-bold text-sm uppercase">
+                <a href="#">Shop</a><a href="#">Discover</a><a href="#">Help</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="bg-white rounded-full px-4 py-1 flex items-center border border-gray-300">
+                <input type="text" placeholder="Search" class="outline-none text-sm w-48">
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+            </div>
+            <i class="fa-regular fa-heart text-xl"></i>
+            <i class="fa-solid fa-bag-shopping text-xl"></i>
+        </div>
+    </header>
+
+    <div class="flex max-w-[1400px] mx-auto mt-6 px-4 gap-8 pb-20">
+        
+        <aside class="w-64 bg-white rounded-lg shadow-sm h-fit overflow-hidden border">
+            <div class="flex flex-col text-[13px] font-medium text-gray-700">
+                <a href="#" class="sidebar-item p-3 flex items-center gap-3"><i class="fa-solid fa-house"></i> Account Overview</a>
+                <a href="#" class="sidebar-item active-sidebar p-3 flex items-center gap-3"><i class="fa-solid fa-box"></i> My Orders</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-star"></i> Rewards</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-coins"></i> Points History</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal & Address Details</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-envelope"></i> Preferences & Personalization</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-heart"></i> Wish list</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-layer-group"></i> My Collection</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-bolt"></i> Activities</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-gear"></i> Account Settings</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <div class="flex-1">
+            <nav class="text-xs text-blue-600 mb-4 flex gap-2">
+                <a href="#">Home</a> <span>&gt;</span> <a href="#">Account Overview</a> <span>&gt;</span> <span class="text-gray-500">My Orders</span>
+            </nav>
+
+            <h1 class="text-2xl font-bold mb-6">My Orders</h1>
+
+            <div class="bg-white rounded-lg p-10 mb-8 border relative overflow-hidden flex flex-col items-center justify-center min-h-[200px]">
+                <div class="absolute top-4 left-4 text-purple-600 opacity-80 transform -rotate-12"><i class="fa-solid fa-cube fa-3x"></i></div>
+                <div class="absolute bottom-4 left-20 text-blue-400 opacity-80 transform rotate-12"><i class="fa-solid fa-cube fa-2x"></i></div>
+                <div class="absolute top-10 right-20 text-green-500 opacity-80"><i class="fa-solid fa-cube fa-3x"></i></div>
+                
+                <h2 class="text-xl font-bold text-orange-600 mb-6">You currently have no open orders.</h2>
+                <button class="lego-blue text-white px-10 py-3 rounded-full font-bold text-sm hover:bg-blue-700 shadow-md">Start Shopping</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border shadow-sm flex items-start gap-4">
+                    <img src="https://www.lego.com/cdn/cs/set/assets/blt511894d80a996053/40588.png" class="w-20 h-20 object-contain bg-gray-50 p-1 rounded">
+                    <div>
+                        <h4 class="font-bold text-sm mb-2">Preferences & Personalization</h4>
+                        <p class="text-xs text-gray-600 mb-3 leading-relaxed">Want the most awesome LEGO® experience? Let us customise it for you!</p>
+                        <a href="#" class="text-blue-600 text-xs font-bold underline">Manage your preferences</a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border shadow-sm relative">
+                    <h4 class="font-bold text-sm mb-4">Support</h4>
+                    <div class="grid grid-cols-2 gap-y-4 text-[13px] text-gray-700">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-truck"></i> Deliveries and Returns</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-question"></i> FAQs</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-comment-dots"></i> Contact</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-wrench"></i> Replacement Parts and Instructions</div>
+                    </div>
+                    <div class="absolute -top-10 -right-4 w-16">
+                        <img src="https://www.lego.com/cdn/cs/set/assets/blt6790510526e0e620/rebrand-insiders-support-bot.png" alt="bot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="lego-dark-blue text-white pt-16 pb-8">
+        <div class="max-w-[1400px] mx-auto px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-10 border-b border-gray-600 pb-12">
+                <div class="col-span-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg" class="h-14 mb-6" alt="Lego Logo">
+                    <button class="bg-blue-900 border border-gray-500 px-4 py-2 rounded text-xs flex items-center gap-2 mb-8">
+                         <i class="fa-solid fa-location-dot"></i> United States
+                    </button>
+                    <ul class="text-xs space-y-4 font-medium">
+                        <li><a href="#" class="hover:underline">Gift cards</a></li>
+                        <li><a href="#" class="hover:underline">Sitemap</a></li>
+                        <li><a href="#" class="hover:underline">Find inspiration</a></li>
+                        <li><a href="#" class="hover:underline">LEGO catalogs</a></li>
+                        <li><a href="#" class="hover:underline">Find a LEGO store</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase mb-6">About Us</h5>
+                    <ul class="text-[11px] space-y-4 text-gray-300">
+                        <li><a href="#">About the LEGO Group</a></li>
+                        <li><a href="#">LEGO® news</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Supply chain transparency</a></li>
+                        <li><a href="#">LEGO product certification</a></li>
+                        <li><a href="#">LEGO jobs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase mb-6">Support</h5>
+                    <ul class="text-[11px] space-y-4 text-gray-300">
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Find building instructions</a></li>
+                        <li><a href="#">Replacement parts</a></li>
+                        <li><a href="#">LEGO® Delivery & Shipping</a></li>
+                        <li><a href="#">LEGO® Returns</a></li>
+                        <li><a href="#">Payment methods</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase mb-6">Attractions</h5>
+                    <ul class="text-[11px] space-y-4 text-gray-300">
+                        <li><a href="#">LEGO® House</a></li>
+                        <li><a href="#">LEGOLAND® Parks</a></li>
+                        <li><a href="#">LEGOLAND Discovery Centers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-xs uppercase mb-6">More From Us</h5>
+                    <ul class="text-[11px] space-y-4 text-gray-300">
+                        <li><a href="#">LEGO® Magazine (FREE)</a></li>
+                        <li><a href="#">LEGO Education</a></li>
+                        <li><a href="#">LEGO Ideas</a></li>
+                        <li><a href="#">LEGO Foundation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center mt-10 gap-8">
+                <div>
+                    <p class="text-xs font-bold uppercase mb-4">Subscribe to digital marketing emails</p>
+                    <div class="flex">
+                        <input type="text" placeholder="Your email address" class="p-2 text-black text-sm w-64 rounded-l">
+                        <button class="bg-orange-600 px-4 rounded-r font-bold text-xl font-bold">></button>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold uppercase mb-4 text-center md:text-left">Follow Us</p>
+                    <div class="flex gap-4">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                        <i class="fa-brands fa-twitter fa-xl"></i>
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                        <i class="fa-brands fa-youtube fa-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-[10px] text-gray-400 flex flex-wrap gap-4 border-t border-gray-600 pt-8">
+                <a href="#">Privacy policy</a>
+                <a href="#">Cookies</a>
+                <a href="#">Legal notice</a>
+                <a href="#">Terms of use</a>
+                <a href="#">Digital wellbeing</a>
+                <a href="#">Accessibility</a>
+                <p class="w-full mt-4 text-gray-500">LEGO System A/S, DK-7190 Billund, Denmark. Must be 18 years or older to purchase online. LEGO, the LEGO logo, the Minifigure, DUPLO, the FRIENDS logo, the MINIFIGURES logo, DREAMZzz, NINJAGO, VIDIYO and MINDSTORMS are trademarks of the LEGO Group. ©2024 The LEGO Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

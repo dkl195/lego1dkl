@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO My Account Replica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f4f4; font-family: sans-serif; }
+        .lego-yellow { background-color: #ffd500; }
+        .lego-blue { background-color: #006db7; }
+        .sidebar-item:hover { background-color: #e5e7eb; }
+        .active-sidebar { background-color: #006db7; color: white !important; }
+    </style>
+</head>
+<body>
+
+    <header class="lego-yellow p-3 flex justify-between items-center px-8 border-b border-black">
+        <div class="flex items-center gap-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/LEGO_logo.svg" class="h-10" alt="Lego Logo">
+            <nav class="hidden md:flex gap-4 font-bold text-sm uppercase">
+                <a href="#">Shop</a><a href="#">Discover</a><a href="#">Help</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="bg-white rounded-full px-4 py-1 flex items-center border border-gray-300">
+                <input type="text" placeholder="Search" class="outline-none text-sm w-48">
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+            </div>
+            <i class="fa-regular fa-heart text-xl"></i>
+            <i class="fa-solid fa-bag-shopping text-xl"></i>
+        </div>
+    </header>
+
+    <div class="flex max-w-[1400px] mx-auto mt-6 px-4 gap-6">
+        
+        <aside class="w-64 bg-white rounded-lg shadow-sm h-fit overflow-hidden">
+            <div class="flex flex-col text-sm text-gray-700">
+                <a href="#" class="sidebar-item active-sidebar p-3 flex items-center gap-3"><i class="fa-solid fa-house"></i> Account Overview</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-box"></i> My Orders</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-star"></i> Rewards</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-coins"></i> Points History</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal Details</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-gear"></i> Account Settings</a>
+                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3 text-red-600"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="flex-1">
+            <h1 class="text-2xl font-bold mb-4">My Account</h1>
+
+            <div class="bg-white rounded-lg p-6 mb-6 flex justify-between items-center relative overflow-hidden border">
+                <div class="z-10 w-2/3">
+                    <p class="mb-4 text-gray-700">Unlock a world of awesome LEGO® benefits and rewards including early access sets, gifts with purchase, and member-only discounts.</p>
+                    <button class="lego-blue text-white px-6 py-2 rounded-full font-bold hover:bg-blue-700 transition">Become a LEGO® Insider!</button>
+                </div>
+                <div class="text-right z-10">
+                    <p class="font-bold">It's FREE to be VIP</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Lego_Insiders_Logo.png" class="h-12 mt-2 ml-auto" alt="Insiders">
+                </div>
+                <div class="absolute top-0 right-0 w-32 h-full bg-green-500 opacity-20 -skew-x-12 translate-x-16"></div>
+            </div>
+
+            <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg p-10 text-center mb-6">
+                <h3 class="font-bold text-lg">Create your wish list</h3>
+                <p class="text-gray-500 mb-4">Wish lists help keep track of LEGO sets for you and your loved ones.</p>
+                <button class="border-2 border-blue-500 text-blue-500 px-6 py-2 rounded-full font-bold">+ Create new list</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-6 rounded-lg border shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold">LEGO® Insiders rewards</h3>
+                        <div class="flex gap-2">
+                            <button class="w-8 h-8 rounded-full border flex items-center justify-center">←</button>
+                            <button class="w-8 h-8 rounded-full border flex items-center justify-center">→</button>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2 text-center text-xs">
+                            <div class="bg-gray-100 p-4 rounded-md mb-2 h-32 flex items-center justify-center">
+                                <img src="https://www.lego.com/cdn/cs/set/assets/bltf9507f30097f4c01/40589.png" class="max-h-full">
+                            </div>
+                            <p class="font-bold">Fish Tank</p>
+                            <p class="text-gray-500">2400 Points</p>
+                        </div>
+                        <div class="w-1/2 text-center text-xs">
+                            <div class="bg-gray-100 p-4 rounded-md mb-2 h-32 flex items-center justify-center">
+                                <img src="https://www.lego.com/cdn/cs/set/assets/bltc2a39243765103d3/40580.png" class="max-h-full">
+                            </div>
+                            <p class="font-bold">Retro Space Explorer</p>
+                            <p class="text-gray-500">2400 Points</p>
+                        </div>
+                    </div>
+                    <button class="mt-4 border border-blue-500 text-blue-500 px-4 py-1 rounded-full text-sm font-bold">View All Rewards</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold">Gift with Purchase</h3>
+                        <div class="flex gap-2">
+                            <button class="w-8 h-8 rounded-full border flex items-center justify-center">←</button>
+                            <button class="w-8 h-8 rounded-full border flex items-center justify-center">→</button>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2 text-center text-xs">
+                            <div class="bg-gray-100 p-4 rounded-md mb-2 h-32 flex items-center justify-center">
+                                <img src="https://www.lego.com/cdn/cs/set/assets/blt511894d80a996053/40588.png" class="max-h-full">
+                            </div>
+                            <p class="font-bold">Floral Picture Frame</p>
+                        </div>
+                        <div class="w-1/2 text-center text-xs">
+                            <div class="bg-gray-100 p-4 rounded-md mb-2 h-32 flex items-center justify-center">
+                                <img src="https://www.lego.com/cdn/cs/set/assets/blt9044b70275817c76/40587.png" class="max-h-full">
+                            </div>
+                            <p class="font-bold">Bunny Ear Bag</p>
+                        </div>
+                    </div>
+                    <button class="mt-4 border border-blue-500 text-blue-500 px-4 py-1 rounded-full text-sm font-bold">View special offers</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                 <div class="bg-white p-4 rounded-lg flex items-center gap-4 border">
+                    <div class="bg-blue-100 p-3 rounded-full">🎁</div>
+                    <div>
+                        <p class="font-bold text-sm">Preferences & Personalization</p>
+                        <a href="#" class="text-blue-500 text-xs underline">Manage your preferences</a>
+                    </div>
+                 </div>
+                 <div class="bg-white p-4 rounded-lg border grid grid-cols-2 gap-2 text-xs">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-truck"></i> Deliveries</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-circle-question"></i> FAQs</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-envelope"></i> Contact</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-wrench"></i> Replacement Parts</div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
