@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEGO - Personal & Address Details</title>
+    <title>LEGO My Account Replica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-   <body>
-<style data-purpose="custom-typography">
+    <style>
+        body { background-color: #f4f4f4; font-family: sans-serif; }
+        .lego-yellow { background-color: #ffd500; }
+        .lego-blue { background-color: #006db7; }
+        .sidebar-item:hover { background-color: #e5e7eb; }
+        .active-sidebar { background-color: #006db7; color: white !important; }
+    </style>
+</head>
+<body>
+
+ <style data-purpose="custom-typography">
     .brand-heading {
       font-weight: 900;
       text-transform: uppercase;
@@ -268,7 +277,7 @@
             <span class="badge">0</span>
         </a>
 
-              <a href="account.html" class="btn-icon user-avatar">
+              <a href="login.html" class="btn-icon user-avatar">
             <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
         </a>
        
@@ -278,83 +287,71 @@
     </header>
 </body>
 </html>
-
-     <div class="flex max-w-[1400px] mx-auto mt-6 px-4 gap-6">
+    <div class="flex max-w-[1400px] mx-auto mt-6 px-4 gap-6">
         
-     <aside class="w-64 bg-white rounded-lg shadow-sm h-fit overflow-hidden">
+        <aside class="w-64 bg-white rounded-lg shadow-sm h-fit overflow-hidden">
             <div class="flex flex-col text-sm text-gray-700">
                 <a href="account.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-house"></i> Account Overview</a>
                 <a href="order.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-box"></i> My Orders</a>
-                <a href="wishlist.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-star"></i> My wishlist</a>
+                <a href="wishlist.html" class="sidebar-item active-sidebar p-3 flex items-center gap-3""><i class="fa-solid fa-star"></i> My wishlist</a>
                 <a href="collection.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-coins"></i> My collection</a>
-                <a href="address.html" class="sidebar-item active-sidebar p-3 flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal Details</a>
+                <a href="address.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal Details</a>
                 <a href="login.html" class="sidebar-item p-3 border-t flex items-center gap-3 text-red-600"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
             </div>
         </aside>
 
-       <main class="flex-1">
-            <h1 class="text-2xl font-bold mb-4">My Address </h1>
 
-            <div class="bg-white rounded-xl shadow-sm p-8">
-                <div class="flex justify-end mb-4">
-                    <button class="text-xs font-bold underline">Cancel</button>
-                </div>
+        <main class="flex-1 lg:ml-10">
+            <h1 class="text-4xl font-black mb-8">Wish list</h1>
 
-                <div class="grid grid-cols-2 gap-6 mb-6">
-                    <div class="input-group">
-                        <label>First Name *</label>
-                        <input type="text" class="w-full border border-gray-300 rounded p-3 outline-none focus:border-blue-500">
-                    </div>
-                    <div class="input-group">
-                        <label>Last Name *</label>
-                        <input type="text" class="w-full border border-gray-300 rounded p-3 outline-none focus:border-blue-500">
-                    </div>
+            <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center relative overflow-hidden group">
+                <div class="z-10 relative">
+                    <h2 class="text-3xl font-bold mb-3">Your wish is our command</h2>
+                    <p class="text-gray-500 max-w-md mb-8 leading-relaxed">Create a new wish list or manage your current lists here. Keep track of your dream sets!</p>
+                    <button class="btn-click bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition-all shadow-md">
+                        + Create new list
+                    </button>
                 </div>
-
-                <div class="w-1/2 pr-3 mb-6">
-                    <div class="input-group">
-                        <label>Phone number *</label>
-                        <input type="text" class="w-full border border-gray-300 rounded p-3 outline-none">
-                    </div>
-                </div>
-
-                <div class="input-group mb-6">
-                    <label>Country</label>
-                    <select class="w-full border border-gray-300 rounded p-3 appearance-none outline-none">
-                        <option>USA</option>
-                    </select>
-                    <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400"></i>
-                </div>
-
-                <div class="input-group mb-4">
-                    <input type="text" placeholder="Enter address" class="w-full border border-gray-300 rounded p-3 outline-none">
-                </div>
-                
-                <div class="text-right">
-                    <button class="text-xs font-bold underline">Enter it manually</button>
+                <div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-pink-50 to-transparent"></div>
+                <div class="z-10 text-pink-300 text-8xl transform group-hover:scale-110 transition-transform duration-500">
+                    <i class="fas fa-shapes"></i>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-6 mt-12">
-                <div class="bg-white p-6 rounded-xl shadow-sm border flex items-center">
-                    <img src="https://www.lego.com/cdn/cs/set/assets/blt0f82998a46231d68/Preferences.png" class="w-20 mr-6">
+            <div class="mt-16">
+                <div class="flex justify-between items-end mb-8">
                     <div>
-                        <h4 class="font-bold text-sm mb-1">Preferences & Personalization</h4>
-                        <p class="text-xs text-gray-500 mb-2">Want the most awesome LEGO® experience? Let us customise it for you!</p>
-                        <a href="#" class="text-xs text-blue-600 underline font-bold">Manage your preferences</a>
+                        <h2 class="text-2xl font-bold">Recommended For You</h2>
+                        <div class="h-1 w-20 bg-yellow-400 mt-2"></div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="btn-click bg-white border p-3 rounded-full hover:bg-gray-50 shadow-sm"><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn-click bg-white border p-3 rounded-full hover:bg-gray-50 shadow-sm"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-sm border relative">
-                    <h4 class="font-bold text-sm mb-4">Support</h4>
-                    <div class="grid grid-cols-2 gap-4 text-[11px] font-bold">
-                        <div class="flex items-center"><i class="fas fa-truck mr-2"></i> Deliveries and Returns</div>
-                        <div class="flex items-center"><i class="far fa-question-circle mr-2"></i> FAQs</div>
-                        <div class="flex items-center"><i class="far fa-envelope mr-2"></i> Contact</div>
-                        <div class="flex items-center"><i class="fas fa-book mr-2"></i> Replacement Parts and Instructions</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    
+                    <div class="product-card bg-white rounded-2xl p-5 border border-gray-100 relative group cursor-pointer">
+                        <button class="absolute top-4 right-4 z-20 text-gray-300 hover:text-red-500 text-xl transition-colors">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <span class="absolute top-4 left-4 bg-yellow-400 text-[10px] font-black px-3 py-1 uppercase rounded">New</span>
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://www.lego.com/cdn/cs/set/assets/blt9007c0823293e507/71431.png" alt="Mario Kart" class="w-full h-44 object-contain">
+                        </div>
+                        <h3 class="font-bold text-sm text-gray-800 leading-tight h-10 group-hover:text-blue-600 transition-colors">Mario Kart™ - Luigi & Mach 8</h3>
+                        <div class="flex items-center my-2 text-yellow-500 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-gray-400 font-normal">(22)</span>
+                        </div>
+                        <p class="font-black text-xl mt-1">$179.99</p>
+                        <button class="btn-click w-full mt-6 bg-orange-500 text-white py-3 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-lg shadow-orange-200">
+                            Pre-order
+                        </button>
                     </div>
-                    <img src="https://www.lego.com/cdn/cs/set/assets/blt690c50005d54a93c/VIP-Mascot.png" class="absolute -top-10 -right-2 w-16">
-                </div>
+
+                    </div>
             </div>
         </main>
     </div>

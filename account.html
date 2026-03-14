@@ -16,7 +16,34 @@
 </head>
 <body>
 
-   <style>
+ <style data-purpose="custom-typography">
+    .brand-heading {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="animations">
+    .hover-scale {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .active-press:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <style>
         /* --- 1. CSS RESET & FONTS --- */
         * {
             margin: 0;
@@ -223,13 +250,15 @@
     <header class="header">
         <div class="container">
             <div class="nav-left">
-                <div class="logo">
-                    <div class="logo-box">B</div>
-                    <span class="logo-text">ĐKL</span>
-                </div>
+               <a href="homepage.html" class="logo-link">
+    <div class="logo">
+        <div class="logo-box">B</div>
+        <span class="logo-text">ĐKL</span>
+    </div>
+</a>
                 <nav class="nav-menu">
-                    <a href="#" class="nav-link">Shop</a>
-                    <a href="#" class="nav-link">Discover</a>
+                    <a href="main.html" class="nav-link">Shop</a>
+                    <a href="productdkl.html" class="nav-link">Discover</a>
                     <a href="#" class="nav-link">Help</a>
                 </nav>
             </div>
@@ -243,14 +272,17 @@
                 <div class="icon-group">
                     <button class="btn-icon" title="Yêu thích">♡</button>
                     
-                    <div class="cart-wrapper">
-                        <button class="btn-icon" title="Giỏ hàng">🛒</button>
-                        <span class="badge">0</span>
-                    </div>
+                   <a href="cart.html" class="cart-wrapper">
+            <button class="btn-icon" title="Giỏ hàng">🛒</button>
+            <span class="badge">0</span>
+        </a>
 
-                    <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
-                </div>
-            </div>
+              <a href="login.html" class="btn-icon user-avatar">
+            <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
+        </a>
+       
+    </div>
+</div>
         </div>
     </header>
 </body>
@@ -259,13 +291,12 @@
         
         <aside class="w-64 bg-white rounded-lg shadow-sm h-fit overflow-hidden">
             <div class="flex flex-col text-sm text-gray-700">
-                <a href="#" class="sidebar-item active-sidebar p-3 flex items-center gap-3"><i class="fa-solid fa-house"></i> Account Overview</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-box"></i> My Orders</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-star"></i> Rewards</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-coins"></i> My collection</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal Details</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-gear"></i> Account Settings</a>
-                <a href="#" class="sidebar-item p-3 border-t flex items-center gap-3 text-red-600"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                <a href="account.html" class="sidebar-item active-sidebar p-3 flex items-center gap-3"><i class="fa-solid fa-house"></i> Account Overview</a>
+                <a href="order.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-box"></i> My Orders</a>
+                <a href="wishlist.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-star"></i> My wishlist</a>
+                <a href="collection.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-coins"></i> My collection</a>
+                <a href="address.html" class="sidebar-item p-3 border-t flex items-center gap-3"><i class="fa-solid fa-address-card"></i> Personal Details</a>
+                <a href="login.html" class="sidebar-item p-3 border-t flex items-center gap-3 text-red-600"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
             </div>
         </aside>
 

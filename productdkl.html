@@ -32,7 +32,34 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
-<style>
+<style data-purpose="custom-typography">
+    .brand-heading {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="animations">
+    .hover-scale {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .active-press:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <style>
         /* --- 1. CSS RESET & FONTS --- */
         * {
             margin: 0;
@@ -233,16 +260,21 @@
         }
 
     </style>
-< <header class="header">
+</head>
+<body>
+
+    <header class="header">
         <div class="container">
             <div class="nav-left">
-                <div class="logo">
-                    <div class="logo-box">B</div>
-                    <span class="logo-text">ĐKL</span>
-                </div>
+               <a href="homepage.html" class="logo-link">
+    <div class="logo">
+        <div class="logo-box">B</div>
+        <span class="logo-text">ĐKL</span>
+    </div>
+</a>
                 <nav class="nav-menu">
-                    <a href="#" class="nav-link">Shop</a>
-                    <a href="#" class="nav-link">Discover</a>
+                    <a href="main.html" class="nav-link">Shop</a>
+                    <a href="productdkl.html" class="nav-link">Discover</a>
                     <a href="#" class="nav-link">Help</a>
                 </nav>
             </div>
@@ -256,21 +288,26 @@
                 <div class="icon-group">
                     <button class="btn-icon" title="Yêu thích">♡</button>
                     
-                    <div class="cart-wrapper">
-                        <button class="btn-icon" title="Giỏ hàng">🛒</button>
-                        <span class="badge">0</span>
-                    </div>
+                   <a href="cart.html" class="cart-wrapper">
+            <button class="btn-icon" title="Giỏ hàng">🛒</button>
+            <span class="badge">0</span>
+        </a>
 
-                    <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
-                </div>
-            </div>
+              <a href="account.html" class="btn-icon user-avatar">
+            <button class="btn-icon user-avatar" title="Tài khoản">👤</button>
+        </a>
+       
+    </div>
+</div>
         </div>
     </header>
+</body>
+</html>
 
 <main class="max-w-[1440px] mx-auto px-4 md:px-10 py-8">
     <div class="mb-8">
         <nav class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-2 uppercase tracking-widest">
-            <a class="hover:text-primary transition-colors" href="#">Home</a>
+            <a class="hover:text-primary transition-colors" href="main.html">Home</a>
             <span class="material-symbols-outlined text-xs">chevron_right</span>
             <span class="text-slate-600 dark:text-slate-300">Building Sets</span>
         </nav>
@@ -420,7 +457,7 @@
                         <div class="absolute top-3 left-3 z-10 flex flex-col gap-2">
                             <span class="bg-slate-900 dark:bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Best Seller</span>
                         </div>
-                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Yellow construction crane made of plastic bricks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAER0DUmtP-x4hG-WnH-xQmnkYNfR-BqXODR8bbuw03BYXVZEkf4UxPv_TWp7YAEVqEooLtisIvQMsDGPvGvYmsjo4Z7YzsrTxoomvxjoNWmPItnClEohuAv-d1RzBesfNpw3_dMbzw0HQOQrW7Vg28o3zlaCC4wJ-XprXuNq2m4oiDYhfkQp_LXh2vdczrA02Z96fGvc2lAKekCu-3q8da9sphYFr-kWG0wrIKRaxI9GS85aW70F92MXnsyWCRDxVrQ4-2r3Fo4Us"/>
+                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Yellow construction crane made of plastic bricks" src="https://i.pinimg.com/736x/91/23/74/91237419d1788d6cc0994186290dac14.jpg"/>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex items-center gap-2 mb-2">
@@ -450,7 +487,7 @@
 
                 <div class="group product-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div class="relative overflow-hidden aspect-square bg-slate-50 dark:bg-slate-900">
-                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Toy car being built with bricks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3dYhi3pT1Ax7Lyk9sa3jgMYj70Pp0bQP8zadaowwLckgTSGAokCBmSgIdO7ntAXSzEaiAUJOC9Fjek0lws0m2jo__p3lR2-XCxwbOFFcLTRMgry1aHX6PfeB2xEpfRDG5iTCsdKSPWQP7Vbh4P2W3CGWeY9WgNJnBIuU6uWljlp05I7bz2gkbUxBZuFvnBuAHT9nd7AFCC73m0471Nfk9OpE0FbvxgxqvwGO_hsqBs9vEDUNcWKQiTqizhJXUfM16YfOfi5vqDI4"/>
+                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Toy car being built with bricks" src="https://i.pinimg.com/1200x/d1/ed/9e/d1ed9e2d247a905da84f299f093e1884.jpg"/>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex items-center gap-2 mb-2">
@@ -483,7 +520,7 @@
                         <div class="absolute top-3 left-3 z-10 flex flex-col gap-2">
                             <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">New</span>
                         </div>
-                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Brick model of a small plant in a pot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD236jLnPgN11yKpQV7AWUH9l9z6frRTRm3KTSeImKBqfgJMAiR4YOnaNHG3mY-_mSaLuSASaPwTd3Y6OQ9Q-IAj9Dme49mPJ1hhSCJTrJL5V-eeO4jkcnIv1D-2LLgEzZrZ5Z135bLEO40dKI1g9nPE4ycV78yH8iyM46lwcV_rC0CNe3j1jF2Asqh-8ahuA0dfTbcHJSNu5lyEHdyTKGDkvk4rUkVE96PCbfKvHY6j6xn2lrIW8-9oVw_5AgIU_QLbnrMt40QbXc"/>
+                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Brick model of a small plant in a pot" src="https://i.pinimg.com/736x/ea/e0/5f/eae05f47cbe606f33b6f103d863df94f.jpg"/>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex items-center gap-2 mb-2">
@@ -513,7 +550,7 @@
 
                 <div class="group product-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div class="relative overflow-hidden aspect-square bg-slate-50 dark:bg-slate-900">
-                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Toy castle architecture set" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLyq1EJWW8vagweJDtVyR80TlEToJXnzME4WFdv2YJHtU9DPGq9SnP2h_aQAamvQk2D5IkiWvzrzzAPa3rWRs6eLw9_Xd3XFNGmI_yrijzNK81Obsus3Yzx518VN8zDs_MtrVPxvVJP-9_2Rc85F_mgP6ms9GUsvm2ZGzRx0o90NlHQ_qzOiD57ep30ePIDHTQl4vNIhgO3mHqbhoRX-n5llShTdyLVZhJwispch-wW26etmTVC03cjTWYtzVCeXnMl5OSjOJHJig"/>
+                        <img class="product-image w-full h-full object-cover transition-transform duration-500" data-alt="Toy castle architecture set" src="https://i.pinimg.com/736x/39/f5/a7/39f5a78c08ae7720ec1a3fe754ab0738.jpg"/>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex items-center gap-2 mb-2">
